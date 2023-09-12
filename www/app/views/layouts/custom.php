@@ -1,8 +1,9 @@
 <?php
 
-    use app\assets\AppAsset;
+use app\assets\CustomAsset;
+use yii\helpers\Html;
 
-    AppAsset::register($this);
+CustomAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
@@ -12,9 +13,20 @@
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="d-flex flex-column h-100">
+<body>
 <?php $this->beginBody() ?>
+<div class="logo">
+    <img src="img/gear01.png" alt="logo">
+</div>
+<header>
+    <a href="#">список</a>
+    <a href="#">добавить</a>
+    <a href="#">запасной</a>
+</header>
 
+<div class="content">
+    <?= $content ?>
+</div>
 
 <?php $this->endBody() ?>
 </body>
