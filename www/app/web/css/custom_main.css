@@ -46,7 +46,48 @@ header a {
 .content {
     box-sizing: border-box;
     padding: 10px 20px;
-    margin-top: 5px;
+    margin-top: 10px;
     margin-left: 120px;
     max-width: 1024px;
+}
+
+.db_row {
+    border-bottom: 1px solid black;
+    padding: 5px 20px;
+    margin: 0 auto 20px auto ;
+    width: 80%
+}
+
+.db_row .row_header {
+    border-bottom: 1px solid silver;
+    padding: 5px 0;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.db_row .row_description {
+    margin: 10px 0px;
+}
+
+.db_row .row_body {
+    margin: 10px 0px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid silver;
+}
+
+.db_row .row_footer {
+    text-align: right;
+}
+
+.flashes {
+    border: 1px solid silver;
+}
+
+.flash-success{
+    color: green;
+}
+
+.flash-error {
+    color: red;
 }

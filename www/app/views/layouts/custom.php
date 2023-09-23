@@ -16,11 +16,11 @@ CustomAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 <div class="logo">
-    <img src="img/gear01.png" alt="logo">
+    <img src="/img/gear01.png" alt="logo">
 </div>
 <header>
-    <a href="#">список</a>
-    <a href="#">добавить</a>
+    <a href="/main/list">список</a>
+    <a href="/main/add">добавить</a>
     <a href="#">запасной</a>
 </header>
 

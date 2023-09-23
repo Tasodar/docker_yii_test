@@ -1,0 +1,4 @@
+CREATE DATABASE IF NOT EXISTS `yii`;
+CREATE DATABASE IF NOT EXISTS `yii_test`;
+GRANT ALL PRIVILEGES ON `yii`.* TO 'yii'@'%';
+GRANT ALL PRIVILEGES ON `yii_test`.* TO 'yii'@'%';

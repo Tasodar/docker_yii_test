@@ -33,12 +33,13 @@ services:
         - ./www:/var/www
         - ./mysql-data:/var/lib/mysql
         - ./my.cnf:/etc/mysql/conf.d/my.cnf
+        - ./init:/docker-entrypoint-initdb.d
         environment:
         - MYSQL_USER=yii
         - MYSQL_PASSWORD=yii
         - MYSQL_ROOT_PASSWORD=yii
-        - MYSQL_DATABASE=yii
-        command: ["--default-authentication-plugin=mysql_native_password"]
+        #- MYSQL_DATABASE=yii
+        command: ["--default-authentication-plugin=caching_sha2_password"]
         networks:
             - yii
     phpmyadmin:
