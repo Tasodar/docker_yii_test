@@ -34,5 +34,4 @@ class Post extends ActiveRecord
         }
         $this->addError($attribute, 'Just i vant to stop this madness' );
     }
-
 }

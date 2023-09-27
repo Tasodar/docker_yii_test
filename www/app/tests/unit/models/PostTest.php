@@ -2,9 +2,12 @@
 
 namespace app\tests\unit\models;
 
+use \Codeception\Test\Unit;
 use app\models\Post;
 use app\tests\fixtures\PostFixture;
-class PostTest extends \Codeception\Test\Unit
+use Yii;
+
+class PostTest extends Unit
 {
     /**
      * @var \UnitTester
@@ -48,10 +51,14 @@ class PostTest extends \Codeception\Test\Unit
     public function testEmptyData() {
         $post = new Post();
         verify($post->validate())->false();
+        verify( $post->getErrors() )->arrayHasKey('title', 'no title error');
+        verify( $post->getErrors() )->arrayHasKey('description', 'no description error' );
+        verify( $post->getErrors() )->arrayHasKey('body', 'no body error' );
+        verify( $post->getErrors() )->arrayHasKey('profile_id', 'no profileId error' );
         verify($post->save())->false();
     }
 
-    public function testRecordsCountIncrease() {
+    public function testLastRecord() {
         $countStart = Post::find()->count();
         $post = new Post();
         $data = [
@@ -64,11 +71,10 @@ class PostTest extends \Codeception\Test\Unit
         $post->save();
         $countAfterSave = Post::find()->count();
 
+        $lastInsertedId = Post::find()->max('id');
+        $lastRecord = Post::find()->where(['id'=>$lastInsertedId])->one();
+        verify($lastRecord->title)->equals($data['title']);
+
         verify( ($countAfterSave - $countStart) === 1 )->true();
-    }
-    public function testDebugTest() {
-        $post = new Post();
-        $this->assertFalse($post->validate(), 'wrong - empty data validated');
-        $this->assertFalse($post->save(), 'wrong - empty post saved');
     }
 }

@@ -33,7 +33,6 @@ class MainController extends \yii\web\Controller
             Yii::$app->session->addFlash('error','Data save fail. Looser!');
         }
 
-
         $userList = Profile::getList();
         return $this->render('add', ['model' => $model, 'userList' => $userList]);
     }
